@@ -7,7 +7,8 @@ from keep_alive import keep_alive
 from discord.ext import commands
 import image
 
-client = discord.Client(intents=discord.Intents.default())
+# client = discord.Client(intents=discord.Intents.default())
+client = commands.Bot(command_prefix=')')
 
 bye_statements = ["bye", "Bye", "cya", "Cya"]
 
@@ -78,6 +79,11 @@ async def on_message(message):
     if message.content.startswith("cat"):
         get_cat = image.Cat()
         await message.channel.send(get_cat)
+        
+    if message.content.startswith("avatar"):
+        get_avatar = avatar()
+        await message.channel.send(get_avatar)
+
 
 
 keep_alive()
